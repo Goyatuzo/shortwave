@@ -7,10 +7,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = [
     {
         entry: {
-            global: './src/champion-damage/index'
+            global: './src/index'
         },
         output: {
-            filename: 'champion-damage.js',
+            filename: 'gallery-bundle.js',
             path: __dirname + '/dist/'
         },
         resolve: {

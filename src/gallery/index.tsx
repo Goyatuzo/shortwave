@@ -7,7 +7,7 @@ interface ExternalProps {
 type GalleryProps = ExternalProps;
 
 export class GalleryComponent extends React.Component<GalleryProps, null> {
-    constructor(props: AppProps) {
+    constructor(props: GalleryProps) {
         super(props);
     }
 
