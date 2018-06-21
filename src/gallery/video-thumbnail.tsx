@@ -9,9 +9,9 @@ interface VideoThumbnailProps {
 export const VideoThumbnailComponent: React.SFC<VideoThumbnailProps> = (props: VideoThumbnailProps) => {
         const { onClick, imgSrc, videoButtonSrc } = props;
         return (
-            <div onClick={onClick}>
-                <img src={imgSrc} />
-                <img src={videoButtonSrc} />
+            <div className="video-thumbnail" onClick={onClick}>
+                <img className="video-thumbnail-background" src={imgSrc} />
+                <img className="video-thumbnail-icon" src={videoButtonSrc} />
             </div>
         );
     }
