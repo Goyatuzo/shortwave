@@ -11,13 +11,21 @@ import { AdminComponent } from './admin';
 
 const history = createHistory();
 
-render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
 
+    return null;
+}
 
-// render(<Router history={history}>
-//     <React.Fragment>
-//         <Route path="/" component={GalleryComponent}>
-//             <Route path="admin" component={AdminComponent} />
-//         </Route>
-//     </React.Fragment>
-// </Router>, document.getElementById("sharkwave-entry"));
+if (getQueryVariable("admin") === "true") {
+    render(<AdminComponent />, document.getElementById("sharkwave-entry"));
+} else {
+    render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
+}
