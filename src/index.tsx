@@ -9,11 +9,7 @@ import { GalleryComponent } from './gallery';
 import { Router, Route } from 'react-router';
 import { AdminComponent } from './admin';
 
-<<<<<<< HEAD
-import firebase from './firebase/firebase';
-
 render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
-=======
 const history = createHistory();
 
 render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
@@ -26,4 +22,3 @@ render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
 //         </Route>
 //     </React.Fragment>
 // </Router>, document.getElementById("sharkwave-entry"));
->>>>>>> 11df59834d52422c178386165c94006366b2471b
