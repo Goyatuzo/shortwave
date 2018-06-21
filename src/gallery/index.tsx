@@ -18,7 +18,7 @@ export class GalleryComponent extends React.Component<GalleryProps, null> {
                 <p className="hello">Hello World!!</p>
                 <VideoThumbnailComponent
                     onClick = {(e) => console.log('click!')}
-                    imgSrc={""}
+                    imgSrc={"../imgs/nick.jpg"}
                 />
             </div>
         );
