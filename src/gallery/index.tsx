@@ -14,7 +14,7 @@ export class GalleryComponent extends React.Component<GalleryProps, null> {
     render() {
         return (
             <div>
-                Hello World!
+                Hello World!!
             </div>
         )
     }
