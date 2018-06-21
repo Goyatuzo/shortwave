@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {VideoThumbnailComponent} from './video-thumbnail';
 
 interface ExternalProps {
 
@@ -13,9 +14,13 @@ export class GalleryComponent extends React.Component<GalleryProps, null> {
 
     render() {
         return (
-            <div>
-                Hello World!!
+            <div className="gallery-main">
+                <p className="hello">Hello World!!</p>
+                <VideoThumbnailComponent
+                    onClick = {(e) => console.log('click!')}
+                    imgSrc={""}
+                />
             </div>
-        )
+        );
     }
 }
