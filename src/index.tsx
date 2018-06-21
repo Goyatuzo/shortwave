@@ -9,6 +9,7 @@ import { GalleryComponent } from './gallery';
 import { Router, Route } from 'react-router';
 import { AdminComponent } from './admin';
 
+render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
 const history = createHistory();
 
 function getQueryVariable(variable) {

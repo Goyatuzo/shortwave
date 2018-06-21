@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Goyatuzo/shortwave#readme",
   "dependencies": {
     "es6-promise": "^4.2.4",
+    "firebase": "^5.1.0",
     "history": "^4.7.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
