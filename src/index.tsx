@@ -1,5 +1,5 @@
 // Needed to load compile styles.
-const styles = require('../sass/champion-damage.scss');
+const styles = require('./sass/main.scss');
 
 import { render } from 'react-dom';
 import * as React from 'react';
