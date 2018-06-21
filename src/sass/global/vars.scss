@@ -1,7 +1,104 @@
-/// <reference path="../main">
+// ------------- MEDIA QUERIES ------------- //
 
-@import url('https://fonts.googleapis.com/css?family=Lora');
+//@media (max-width:$x-large-media-query-size) 
+$x-large-media-query-size: pxToEm(1600px);	 
 
-$font-family: 'Lora', serif;
+//@media (max-width:$large-media-query-size)
+$large-media-query-size: pxToEm(1280px);		
 
-$primary-color: navy;
+//@media (max-width:$medium-media-query-size)
+$medium-media-query-size: pxToEm(1024px);
+
+//@media (max-width:$tablet-media-query-size)
+$tablet-media-query-size: pxToEm(767px);	
+
+//@media (max-width:$small-media-query-size)
+$small-media-query-size: pxToEm(640px);	
+
+//@media (max-width:$mobile-media-query-size)
+$mobile-media-query-size: pxToEm(340px); 
+
+// ------------- BREAKPOINTS MAP ------------- //
+
+$breakpoints: ( 
+    x-large: $x-large-media-query-size,
+    large : $large-media-query-size, 
+    medium: $medium-media-query-size, 
+    tablet: $tablet-media-query-size, 
+    small : $small-media-query-size,
+    mobile : $mobile-media-query-size 
+);
+
+// ------------- COLORS ------------- //
+
+$primary-medium:			#1578D0 !default;
+$primary-dark:              #130B2D !default;
+$primary-light:             #ffffff !default;
+$secondary-medium:          #6a6a6a !default;
+$secondary-light:           #eeeeee !default;
+$white:                     #ffffff !default;
+$black:                     #000000 !default;
+
+// ------------- FONTS ------------- //
+
+@import url('https://fonts.googleapis.com/css?family=Dosis|Lora:400,700');
+
+$body-font:		'Lora', Georgia, serif  !default;
+$heading-font:  'Lora', Georgia, serif !default;
+$accent-font:   'Space Mono', monospace !default;
+
+// ------------- FONT WEIGHTS ------------- //
+
+$font-weight-normal:		400 !default;
+$font-weight-bold:			700 !default;
+
+// ------------- CONSTANTS ------------- //
+
+$gap-lg:                    5rem !default;
+$gap:                       2.5rem !default;
+$gap-sm:                    1rem !default;
+$space:                     .5rem !default;
+$max-line-length:           70rem !default;
+$ui-icon-thickness:         3px !default; //for pseudoelement arrows, close buttons, etc
+$border-radius:             3px !default;
+
+// ------------- MISCELLANEOUS --------------- //
+
+$prefix:                    'adage-' !default; //prefix for project-specific classes
+$transition:                .3s !default;
+$shadow:                    .16rem .16rem .6rem rgba($primary-dark, .3);
+
+// ------------- PADDING/MARGIN MAPS --------- //
+
+$standard-padding-map: ( // for global use on most elements. Extend %standard-padding-h or %standard-padding-v
+        null        : 5rem,
+        large       : 4rem,
+        medium      : 2.5rem,
+        small       : 1.5rem
+    );
+
+$gutter-map: (  // for use in anything with columns. Use mixin responsive-property('margin-right', $gutter-map), etc. 
+                // DON'T REMOVE ANY BREAKPOINTS.
+        null        : 2.25rem,
+        large       : 1.5rem,
+        medium      : 1.5rem,
+        small       : 1.25rem
+    );
+
+$card-padding-map: ( // for use with cards or smaller sub-components. Use mixin responsive-property('margin-right', $gutter-map), etc
+        null        : 1.5rem,
+        large       : 1.25rem,
+        small       : 1rem
+    );
+
+$giant-padding-map: ( // for use with galleries
+        null        : 14rem,
+        large       : 10rem,
+        medium      : 4rem,
+        small       : 2rem
+    );
+
+$text-spacing-map: ( //spacing between text elements inside a .rich-text container
+        null        : 1.5rem,
+        medium      : 1rem
+    )

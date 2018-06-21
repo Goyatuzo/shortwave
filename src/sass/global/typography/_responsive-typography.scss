@@ -1,0 +1,67 @@
+﻿/// <reference path="../../main.scss" />
+
+/// parameters: size, line-height, letter-spacing (optional)
+$x-large-font-sizes: ( //h1
+    null : (4rem, (4.5/4)),
+    small : (2.5rem, (3/2.5))
+);
+
+$large-font-sizes: ( //h2
+    null : (2.5rem, (3.25/2.5)),
+    small : (1.75rem, (2.5/2))
+);
+
+$medium-large-font-sizes: ( //h3
+    null : (2rem, (2.75/2)),
+    small : (1.5rem, (2/1.5))
+);
+
+$medium-font-sizes: ( //h4
+    null : (1.5rem, (2.25/1.5)),
+    small : (1rem, (1.5/1))
+);
+
+$reg-font-sizes: (  //h5 + body
+    null : (1.25rem, (1.75/1.25)), 
+    small : (1rem, (1.5/1)) 
+);
+
+$small-font-sizes: ( //h6
+    null : (1rem, (1.75/1)), 
+    small : (.875rem, (1.5/.875)) 
+);
+
+
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+    @each $fs-breakpoint, $fs-font-size in $fs-map {
+        @if $fs-breakpoint == null {
+            @include _make-font-size($fs-font-size);
+        }
+        @else {
+            @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+                $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+            }
+
+            @media screen and (max-width: $fs-breakpoint) {
+                @include _make-font-size($fs-font-size);
+            }
+        }
+    }
+}
+
+@mixin _make-font-size($fs-font-size) {
+    @if type-of($fs-font-size) == "list" {
+        font-size: nth($fs-font-size, 1);
+
+        @if (length($fs-font-size) > 1) {
+            line-height: nth($fs-font-size, 2);
+        }
+
+        @if (length($fs-font-size) > 2) {
+            letter-spacing: nth($fs-font-size, 3);
+        }
+    }
+    @else {
+        font-size: $fs-font-size;
+    }
+}

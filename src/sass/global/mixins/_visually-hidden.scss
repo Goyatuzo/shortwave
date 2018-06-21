@@ -1,0 +1,28 @@
+﻿// <reference path="../main.scss" / >
+/// Visually Hidden Elements
+/// @access public
+/// @name visually-hidden
+/// @group Miscellaneous
+@mixin visually-hidden {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+%visually-hidden, .visually-hidden, .sr-only {
+    @include visually-hidden;
+}
+
+@mixin hide {
+    display: none;
+    visibility: hidden;
+}
+
+%hide, .hide {
+    @include hide;
+}

@@ -1,0 +1,18 @@
+﻿/// <reference path="../../main">
+
+@mixin responsive-property($property, $map) {
+    @each $breakpoint, $amount in $map {
+        @if $breakpoint == null {
+            #{$property}: $amount;
+        }
+        @else {
+            @if map-has-key($breakpoints, $breakpoint) {
+                $breakpoint: map-get($breakpoints, $breakpoint);
+            }
+
+            @media screen and (max-width: $breakpoint) {
+                #{$property}: $amount;
+            }
+        }
+    }
+}
