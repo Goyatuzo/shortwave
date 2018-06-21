@@ -6,4 +6,6 @@ import * as React from 'react';
 
 import { GalleryComponent } from './gallery';
 
+import firebase from './firebase/firebase';
+
 render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
