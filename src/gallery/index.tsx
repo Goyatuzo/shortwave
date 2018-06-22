@@ -55,12 +55,12 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
         this.setState({ selectedAlbum: id, selectedVideo: '' });
     }
 
+    selectVideo(youtubeId: string) {
+        this.setState({ selectedAlbum: '', selectedVideo: youtubeId });
+    }
+
     componentWillMount() {
         let itemsRef = firebase.database().ref('items');
-
-        // selectVideo(youtubeId: string) {
-        //     this.setState({ selectedAlbum: '', selectedVideo: youtubeId });
-        // }
 
         itemsRef.on('child_added', snapshot => {
             const value: IMediaItem = snapshot.val();
@@ -86,12 +86,12 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                         />
                     </li>
                     <li className="grid-item">
-                        {/* <VideoThumbnailComponent
+                        <VideoThumbnailComponent
                             onClick={(e) => this.selectVideo('691qO96VRVw')}
                             imgSrc={"../src/imgs/shark.jpg"}
                             dateString={"September 2018"}
                             title={"Deftones"}
-                        /> */}
+                        />
                     </li>
                 </ul>
 
