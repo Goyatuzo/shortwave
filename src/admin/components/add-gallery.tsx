@@ -10,6 +10,12 @@ type AddGalleryProps = ExternalProps;
 export class AddGalleryComponent extends React.Component<AddGalleryProps, any> {
     constructor(props: AddGalleryProps) {
         super(props);
+
+        this.state = {
+            galleryTitle : "",
+            galleryDescription : "",
+            galleryUrl : ""
+        };
     }
 
     randomGalleryNames = [
@@ -45,16 +51,41 @@ export class AddGalleryComponent extends React.Component<AddGalleryProps, any> {
 
     addGallery(e: React.MouseEvent<HTMLButtonElement>) {
         console.log(e);
-        console.log(this.randomImageUrl);
-        firebase.database().ref('items').push({
-            name: this.randomGalleryNames[Math.floor(Math.random() * this.randomGalleryNames.length)],
-            video: this.randomYoutubeIds[Math.floor(Math.random() * this.randomGalleryNames.length)],
-        }); 
+        // console.log(this.randomImageUrl);
+
+
+
+        // firebase.database().ref('items').push({
+        //     name: this.randomGalleryNames[Math.floor(Math.random() * this.randomGalleryNames.length)],
+        //     video: this.randomYoutubeIds[Math.floor(Math.random() * this.randomGalleryNames.length)],
+        // }); 
+    }
+
+    handleGalleryTitle(e) {
+        this.setState({galleryTitle: e.target.value});
+    }
+
+    handleGalleryDescription(e) {
+        this.setState({galleryDescriptioin: e.target.value});
+    }
+
+    handleGalleryUrl(e) {
+        this.setState({galleryUrl: e.target.value});
     }
 
     render() {
         return (
-            <button onClick={this.addGallery.bind(this)}>+ Add Gallery</button>
+            <form>
+                <legend>Add Gallery Form</legend>
+
+                <label>Gallery Title</label><br />
+                <input value={this.state.galleryTitle} /><br /><br />
+                <label>Gallery Description</label><br />
+                <input value={this.state.galleryDescription} /><br /><br />
+                <label>Image / Video URL</label><br />
+                <input value={this.state.galleryUrl} /><br /><br />
+                <button onClick={this.addGallery.bind(this)}>Submit</button>
+            </form>
         )
     }
 }

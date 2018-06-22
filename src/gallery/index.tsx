@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { VideoThumbnailComponent } from './video-thumbnail';
+import { ThumbnailComponent } from './thumbnail';
 import { Link } from 'react-router-dom';
 
 interface ExternalProps {
@@ -19,13 +19,13 @@ export class GalleryComponent extends React.Component<GalleryProps, null> {
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
                     <li className="grid-item">
-                        <VideoThumbnailComponent
+                        <ThumbnailComponent
                             onClick={(e) => console.log('click!')}
                             imgSrc={"../src/imgs/shark.jpg"}
                         />
                     </li>
                     <li className="grid-item">An item</li>
-                    <li className="grid-item">An item lorem ipsum lorem ipsum</li>
+                    <li className="grid-item">An item lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</li>
                     <li className="grid-item featured">A featured item</li>
                 </ul>
 

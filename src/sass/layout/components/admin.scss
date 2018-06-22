@@ -1,0 +1,9 @@
+@import "../../vars";
+
+.admin {
+    &-container {
+        max-width: $max-line-length;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

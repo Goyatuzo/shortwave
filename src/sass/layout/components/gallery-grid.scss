@@ -1,15 +1,17 @@
-@import '../../global/vars';
+@import "../../vars";
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: $gap-sm;
+    grid-gap: 1px;
     grid-auto-flow: row dense;
     list-style-type: none;
+
     &-item {
         background: $secondary-light;
         grid-column: span 2;
+
         &.featured {
             grid-column: span 4;
             grid-row: span 2;
