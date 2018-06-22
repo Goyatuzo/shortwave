@@ -64,7 +64,7 @@ export class ModalComponent extends React.Component<ModalListingProps, null> {
                 <div role="dialog" aria-labelledby="modalTitle" className="modal-container">
                     <div className="modal-inner" role="document">
                         <div className="modal-overlay" tabIndex={-1} onClick={this.boundCloseModal}>
-                            {this.props.media ? <span className="modal-overlay-title">{this.props.media[0].caption}</span>
+                            {(this.props.media && this.props.media[0]) ? <span className="modal-overlay-title">{this.props.media[0].caption}</span>
                                 : ""
                             }
                         </div>
