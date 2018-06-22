@@ -3,6 +3,7 @@ import { ThumbnailComponent } from './thumbnail';
 import { Link } from 'react-router-dom';
 import { ModalState } from '../common/album';
 import { ModalComponent } from '../lib-components/modal';
+import { AlbumThumbnailComponent } from './album-thumbnail';
 
 interface ExternalProps {
 
@@ -53,9 +54,11 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                 <ul className="grid">
                 <li className="grid-item featured">A featured item</li>
                     <li className="grid-item">
-                        <ThumbnailComponent
+                        <AlbumThumbnailComponent
                             onClick={(e) => this.selectAlbum('album1')}
                             imgSrc={"../src/imgs/shark.jpg"}
+                            dateString={"September 2018"}
+                            title={"Deftones"}
                         />
                     </li>
                     <li className="grid-item">An item</li>
