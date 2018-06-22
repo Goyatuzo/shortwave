@@ -138,6 +138,10 @@
         }
     }
 }
+.item-media {
+    width: $medium-media-query-size;
+    max-width: 100%;
+}
 
 .item-embed {
     position: relative;
