@@ -102,16 +102,16 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                 </ul>
 
                 <Link to="/admin">ADMIN</Link>
-                <button onClick={(e) => this.setState({ modalState: ModalState.OPEN })}>
+                {/* <button onClick={(e) => this.setState({ modalState: ModalState.OPEN })}>
                     Open Modal!
-                </button>
+                </button> */}
 
-                {/* <ModalComponent
+                <ModalComponent
                     youtubeId={this.state.selectedVideo}
                     modalState={this.state.modalState}
                     media={this.getMediaData(this.state.selectedAlbum)}
                     onClose={() => this.setState({ modalState: ModalState.CLOSED })}
-                /> */}
+                />
 
             </section>
         );
