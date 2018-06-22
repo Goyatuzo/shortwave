@@ -13,7 +13,8 @@ type GalleryItemProps = ExternalProps;
 
 export const GalleryItemView: React.StatelessComponent<GalleryItemProps> = props => {
     return (
-        <div>
+        // Temporary className
+        <div className="admin-form">
             <img src={`https://img.youtube.com/vi/${props.youtubeId}/0.jpg`} />
             <p>{props.caption}</p>
             <p>{props.tags}</p> 

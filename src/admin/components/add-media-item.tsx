@@ -14,12 +14,14 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
         this.state = {
             mediaItemTitle: "",
             mediaItemDescription: "",
-            mediaItemUrl: ""
+            mediaItemUrl: "",
+            mediaItemIsVideo: false,
         };
 
         this.handleMediaItemTitle = this.handleMediaItemTitle.bind(this);
         this.handleMediaItemDescription = this.handleMediaItemDescription.bind(this);
         this.handleMediaItemUrl = this.handleMediaItemUrl.bind(this);
+        this.handleMediaItemIsVideo = this.handleMediaItemIsVideo.bind(this);
     }
 
     randomGalleryNames = [
@@ -71,6 +73,10 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
 
     handleMediaItemUrl(e) {
         this.setState({ mediaItemUrl: e.target.value });
+    }
+
+    handleMediaItemIsVideo(e) {
+        this.setState({ mediaItemIsVideo: e.target.value});
     }
 
     render() {

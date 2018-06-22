@@ -1,6 +1,6 @@
 import * as React from 'react';
 import firebase from '../../firebase/firebase';
-import { IVideoItem } from '../../common/gallery-data';
+import { IMediaItem } from '../../common/gallery-data';
 import { GalleryItemView } from '../views/gallery-item';
 import { TagEditorComponent } from './tag-editor';
 
@@ -11,7 +11,7 @@ interface ExternalProps {
 type AdminListingProps = ExternalProps;
 
 interface AdminListingState {
-    items: IVideoItem[];
+    items: IMediaItem[];
 }
 
 export class AdminListingComponent extends React.Component<AdminListingProps, AdminListingState> {
@@ -27,10 +27,10 @@ export class AdminListingComponent extends React.Component<AdminListingProps, Ad
         let itemsRef = firebase.database().ref('items');
 
         itemsRef.on('child_added', snapshot => {
-            const value: IVideoItem = snapshot.val();
+            const value: IMediaItem = snapshot.val();
 
             this.setState({
-                items: [...this.state.items, { key: snapshot.key, name: value.name, video: value.video, tags: value.tags }]
+                items: [...this.state.items, { key: snapshot.key, mediaItemTitle: value.mediaItemTitle, mediaItemDescription: value.mediaItemDescription, mediaItemUrl: value.mediaItemUrl, tags: value.tags }]
             });
         });
     }
@@ -39,7 +39,7 @@ export class AdminListingComponent extends React.Component<AdminListingProps, Ad
         return (
             <div>
                 {
-                    this.state.items.map(item => <GalleryItemView key={item.key} caption={item.name} youtubeId={item.video} tags={item.tags} galleryKey={item.key}/>)
+                    this.state.items.map(item => <GalleryItemView key={item.key} caption={item.mediaItemTitle} youtubeId={item.mediaItemUrl} tags={item.tags} galleryKey={item.key}/>)
                 }
             </div>
         )
