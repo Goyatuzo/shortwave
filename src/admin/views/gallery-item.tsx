@@ -8,7 +8,7 @@ interface ExternalProps {
 
 type GalleryItemProps = ExternalProps;
 
-export const galleryItem: React.StatelessComponent<GalleryItemProps> = props => {
+export const GalleryItemView: React.StatelessComponent<GalleryItemProps> = props => {
     return (
         <div>
             <img src={`https://img.youtube.com/vi/${props.youtubeId}/0.jpg`} />
