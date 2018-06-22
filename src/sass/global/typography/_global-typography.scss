@@ -41,10 +41,11 @@ h2 {
  
 h3 {
     @include font-size($medium-large-font-sizes);
+    font-weight: $font-weight-bold;
 }
 
 h4 {
-    @include font-size($medium-font-sizes);
+    @include font-size($reg-font-sizes);
 }
 
 h5 {
