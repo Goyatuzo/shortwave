@@ -3,8 +3,12 @@ import { ThumbnailComponent } from './thumbnail';
 import { Link } from 'react-router-dom';
 import { ModalState } from '../common/album';
 import { ModalComponent } from '../lib-components/modal';
+<<<<<<< HEAD
 import firebase from '../firebase/firebase';
 import { IMediaItem } from '../common/gallery-data';
+=======
+import { AlbumThumbnailComponent } from './album-thumbnail';
+>>>>>>> be522b0e0cfb285dbdc609b8088b534f5a38c194
 
 interface ExternalProps {
 
@@ -69,9 +73,11 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                 <ul className="grid">
                 <li className="grid-item featured">A featured item</li>
                     <li className="grid-item">
-                        <ThumbnailComponent
+                        <AlbumThumbnailComponent
                             onClick={(e) => this.selectAlbum('album1')}
                             imgSrc={"../src/imgs/shark.jpg"}
+                            dateString={"September 2018"}
+                            title={"Deftones"}
                         />
                     </li>
                     <li className="grid-item">An item</li>
