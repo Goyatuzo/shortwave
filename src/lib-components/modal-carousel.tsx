@@ -66,6 +66,12 @@ export class ModalCarouselComponent extends React.Component<ModalCarouselProps, 
         });
     }
 
+    componentWillUnmount() {
+        if (this.swiper) {
+            this.swiper.destroy();
+        }
+    }
+
     onSlideChange(element: Element) {
         return () => {
             const iframes = element.querySelectorAll("iframe");
