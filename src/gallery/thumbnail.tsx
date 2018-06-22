@@ -11,7 +11,11 @@ export const ThumbnailComponent: React.SFC<ThumbnailProps> = (props: ThumbnailPr
     return (
         <div className="thumbnail" onClick={onClick}>
             <img className="thumbnail-background" src={imgSrc} />
-            <img className="thumbnail-icon" src={iconSrc} />
+            <div className="thumbnail-details">
+                <img className="thumbnail-icon" src={iconSrc} />
+                <h3>Deftones</h3>
+                <h4>September 2018</h4>
+            </div>
         </div>
     );
 }
