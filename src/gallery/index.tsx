@@ -1,16 +1,26 @@
 import * as React from 'react';
 import { ThumbnailComponent } from './thumbnail';
 import { Link } from 'react-router-dom';
+import { ModalCarouselComponent } from '../lib-components/modal-carousel';
+import { ModalState } from '../common/album';
+import { ModalComponent } from '../lib-components/modal';
 
 interface ExternalProps {
 
 }
 
+interface GalleryState {
+    modalState: ModalState;
+}
+
 type GalleryProps = ExternalProps;
 
-export class GalleryComponent extends React.Component<GalleryProps, null> {
+export class GalleryComponent extends React.Component<GalleryProps, GalleryState> {
     constructor(props: GalleryProps) {
         super(props);
+        this.state = {
+            modalState: ModalState.CLOSED
+        }
     }
 
     render() {
@@ -30,6 +40,22 @@ export class GalleryComponent extends React.Component<GalleryProps, null> {
                 </ul>
 
                 <Link to="/admin">ADMIN</Link>
+                <button onClick={(e) => this.setState({ modalState: ModalState.OPEN })}>
+                    Open Modal!
+                </button>
+
+                <ModalComponent media={[
+                    {
+                        caption: "Rocket man!",
+                        src: "http://s3.amazonaws.com/layer-tennis-staging-assets/volleys/_volleyLarge/140926-white-5.jpg"
+                    }, {
+                        caption: "Winter is coming.",
+                        src: "http://s3.amazonaws.com/layer-tennis-staging-assets/volleys/_volleyLarge/141017_01.jpg"
+                    }
+                ]} modalState={this.state.modalState}
+                    onClose={() => this.setState({ modalState: ModalState.CLOSED })}
+                />
+
             </section>
         );
     }
