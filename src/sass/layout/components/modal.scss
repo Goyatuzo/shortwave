@@ -14,7 +14,7 @@
         padding: $gap;
         opacity: 1;
         overflow: auto;
-        background-color: rgba(#000, 0.9);
+        background-color: rgba($primary-dark, .95);
 
         &[aria-hidden="true"] {
             visibility: hidden;
@@ -135,5 +135,18 @@
         &:after {
             transform: rotate(45deg); 
         }
+    }
+}
+
+.item-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    width: 100%;
+    & > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }
