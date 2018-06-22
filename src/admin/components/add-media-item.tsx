@@ -101,7 +101,7 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
                     </li>
                 </ul>
 
-                <button onClick={this.addMediaItem.bind(this)}>Submit</button>
+                <button onClick={this.addMediaItem.bind(this)}>Submit</button><br /><br />
             </form>
         )
     }
