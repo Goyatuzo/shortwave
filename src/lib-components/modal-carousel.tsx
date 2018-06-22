@@ -81,7 +81,9 @@ export class ModalCarouselComponent extends React.Component<ModalCarouselProps, 
     private boundOnSlideChange = this.onSlideChange.bind(this);
 
     private getRender(): JSX.Element {
-        return <ImageCarousel medias={this.props.mediaItem} />
+        if (this.props.mediaItem)
+            return <ImageCarousel medias={this.props.mediaItem} />
+        return null;
     }
 
     render() {

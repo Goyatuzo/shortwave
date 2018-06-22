@@ -19,13 +19,22 @@ export class ModalContentComponent extends React.Component<ModalContentProps, nu
         super(props);
     }
 
+    getView() {
+        if (this.props.youtubeId) {
+            return <VideoItemView youtubeId={this.props.youtubeId} />
+        }
+        else if (this.props.media) {
+            return <ModalCarouselComponent modalState={this.props.modalState} mediaItem={this.props.media} youtubeId={this.props.youtubeId} />
+        }
+        return null;
+    }
+
     render() {
         return (
             <div className="modal-content">
                 {
-                    this.props.youtubeId ? <VideoItemView youtubeId={this.props.youtubeId} /> : <ModalCarouselComponent modalState={this.props.modalState} mediaItem={this.props.media} youtubeId={this.props.youtubeId} />
+                    this.getView()
                 }
-
             </div>
         );
     }
