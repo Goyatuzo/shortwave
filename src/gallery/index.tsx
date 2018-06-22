@@ -28,6 +28,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
             <section className="grid-container">
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
+                <li className="grid-item featured">A featured item</li>
                     <li className="grid-item">
                         <ThumbnailComponent
                             onClick={(e) => console.log('click!')}
@@ -36,7 +37,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                     </li>
                     <li className="grid-item">An item</li>
                     <li className="grid-item">An item lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</li>
-                    <li className="grid-item featured">A featured item</li>
+                    
                 </ul>
 
                 <Link to="/admin">ADMIN</Link>

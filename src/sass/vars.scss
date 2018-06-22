@@ -31,27 +31,27 @@ $breakpoints: (
 
 // ------------- COLORS ------------- //
 
-$primary-medium:			#1578D0 !default;
+$primary-medium:			#0238AA !default;
 $primary-dark:              #130B2D !default;
 $primary-light:             #ffffff !default;
-$secondary-medium:          #6a6a6a !default;
-$secondary-light:           #eeeeee !default;
+$secondary-medium:          #E31E4C !default;
+$secondary-light:           #f7bdca !default;
 $white:                     #ffffff !default;
 $black:                     #000000 !default;
 $red:                       #960000 !default;
 
 // ------------- FONTS ------------- //
 
-@import url('https://fonts.googleapis.com/css?family=Dosis|Lora:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-$body-font:		'Lora', Georgia, serif  !default;
-$heading-font:  'Lora', Georgia, serif !default;
-$accent-font:   'Space Mono', monospace !default;
+$body-font:		'Montserrat', Helvetica, sans-serif  !default;
+$heading-font:  $body-font;
+$accent-font:   $body-font;
 
 // ------------- FONT WEIGHTS ------------- //
 
 $font-weight-normal:		400 !default;
-$font-weight-bold:			700 !default;
+$font-weight-bold:			800 !default;
 
 // ------------- CONSTANTS ------------- //
 
