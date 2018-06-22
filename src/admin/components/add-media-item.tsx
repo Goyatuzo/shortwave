@@ -16,6 +16,10 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
             mediaItemDescription: "",
             mediaItemUrl: ""
         };
+
+        this.handleMediaItemTitle = this.handleMediaItemTitle.bind(this);
+        this.handleMediaItemDescription = this.handleMediaItemDescription.bind(this);
+        this.handleMediaItemUrl = this.handleMediaItemUrl.bind(this);
     }
 
     randomGalleryNames = [
@@ -50,16 +54,11 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
     ]
 
     addMediaItem(e: React.MouseEvent<HTMLButtonElement>) {
-        // console.log(e);
-        console.log(this.state.mediaItemTitle);
-        // console.log(this.randomImageUrl);
-
-
-
-        // firebase.database().ref('items').push({
-        //     name: this.randomGalleryNames[Math.floor(Math.random() * this.randomGalleryNames.length)],
-        //     video: this.randomYoutubeIds[Math.floor(Math.random() * this.randomGalleryNames.length)],
-        // }); 
+        firebase.database().ref('items').push({
+            mediaItemTitle: this.state.mediaItemTitle,
+            mediaItemDescription: this.state.mediaItemDescription,
+            mediaItemUrl: this.state.mediaItemUrl,
+        }); 
     }
 
     handleMediaItemTitle(e) {
@@ -67,7 +66,7 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
     }
 
     handleMediaItemDescription(e) {
-        this.setState({ mediaItemDescriptioin: e.target.value });
+        this.setState({mediaItemDescription: e.target.value});
     }
 
     handleMediaItemUrl(e) {
@@ -82,17 +81,17 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
                 <ul className="admin-form">
                     <li>
                         <label htmlFor="mediaItemTitle">Gallery Title</label>
-                        <input id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle} />
+                        <input type="text" id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle} />
                     </li>
 
                     <li>
                         <label htmlFor="mediaItemDescription">Gallery Description</label>
-                        <input id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleMediaItemDescription} />
+                        <input type="text" id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleMediaItemDescription} />
                     </li>
 
                     <li>
                         <label htmlFor="mediaItemUrl">Image / Video URL</label>
-                        <input id="mediaItemUrl" value={this.state.galleryUrl} onChange={this.handleMediaItemUrl} />
+                        <input type="text" id="mediaItemUrl" value={this.state.galleryUrl} onChange={this.handleMediaItemUrl} />
                     </li>
                 </ul>
 
