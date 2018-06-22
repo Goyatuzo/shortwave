@@ -7,6 +7,7 @@ import { ModalComponent } from '../lib-components/modal';
 import firebase from '../firebase/firebase';
 import { IMediaItem } from '../common/gallery-data';
 import { AlbumThumbnailComponent } from './album-thumbnail';
+import { VideoThumbnailComponent } from './video-thumbnail';
 
 interface ExternalProps {
 
@@ -54,6 +55,10 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
         this.setState({ selectedAlbum: id, selectedVideo: '' });
     }
 
+    selectVideo(youtubeId: string) {
+        this.setState({ selectedAlbum: '', selectedVideo: youtubeId });
+    }
+
     // componentWillMount() {
     //     let itemsRef = firebase.database().ref('items');
 
@@ -71,7 +76,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
             <section className="grid-container">
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
-                <li className="grid-item featured">A featured item</li>
+                    <li className="grid-item featured">A featured item</li>
                     <li className="grid-item">
                         <AlbumThumbnailComponent
                             onClick={(e) => this.selectAlbum('album1')}
@@ -80,9 +85,16 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                             title={"Deftones"}
                         />
                     </li>
-                    <li className="grid-item">An item</li>
+                    <li className="grid-item">
+                        <VideoThumbnailComponent
+                            onClick={(e) => this.selectVideo('691qO96VRVw')}
+                            imgSrc={"../src/imgs/shark.jpg"}
+                            dateString={"September 2018"}
+                            title={"Deftones"}
+                        />
+                    </li>
                     <li className="grid-item">An item lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</li>
-                    
+
                 </ul>
 
                 <Link to="/admin">ADMIN</Link>
@@ -90,8 +102,8 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                     Open Modal!
                 </button>
 
-                <ModalComponent 
-                    youtubeId={this.state.selectedVideo} 
+                <ModalComponent
+                    youtubeId={this.state.selectedVideo}
                     modalState={this.state.modalState}
                     media={this.getMediaData(this.state.selectedAlbum)}
                     onClose={() => this.setState({ modalState: ModalState.CLOSED })}
