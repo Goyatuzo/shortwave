@@ -1,10 +1,10 @@
-@import '../../global/vars';
+@import '../../vars';
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: $gap-sm;
+    grid-gap: 1px;
     grid-auto-flow: row dense;
     list-style-type: none;
     &-item {
