@@ -19,7 +19,7 @@ export class TagEditorComponent extends React.Component<TagEditorProps, TagEdito
 
         this.state = {
             userInput: "",
-            availableTags: []
+            availableTags: [],
         }
     }
 
@@ -47,25 +47,26 @@ export class TagEditorComponent extends React.Component<TagEditorProps, TagEdito
         });
     }
 
-    clickTag(e: React.MouseEvent<HTMLElement>) {
+    clickTag(e: React.ChangeEvent<HTMLSelectElement>) {
         const gallery = firebase.database().ref(`items/${this.props.galleryKey}`);
 
         gallery.once("value", snapshot => {
             const existingTags = (snapshot.val() as IMediaItem).tags || [];
-            gallery.update({ tags: [...existingTags, e.currentTarget.textContent] });
+            gallery.update({ tags: [...existingTags, e.target.value] });
         });
     }
 
     render() {
         return (
             <div>
-                <input type="text" value={this.state.userInput} onChange={this.textInputChange.bind(this)} />
+                <input type="text" value={this.state.userInput} onChange={this.textInputChange.bind(this)} /><br />
+                <select onChange={this.clickTag.bind(this)}>
+                    {
+                        this.state.availableTags.map(tag => <option key={tag.key}>{tag.tag}</option>)
+                    }
+                </select><br />
 
-                {
-                    this.state.availableTags.map(tag => <p key={tag.key} onClick={this.clickTag.bind(this)}>{tag.tag}</p>)
-                }
-
-                <button onClick={this.addTag.bind(this)}>Add Tag</button>
+                <button onClick={this.addTag.bind(this)}>Add Tag</button><br /><br />
             </div>
         )
     }
