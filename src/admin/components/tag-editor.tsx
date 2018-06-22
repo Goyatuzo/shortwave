@@ -47,13 +47,22 @@ export class TagEditorComponent extends React.Component<TagEditorProps, TagEdito
         });
     }
 
+    selectedTag(e: React.MouseEvent<HTMLElement>) {
+        const gallery = firebase.database().ref(`items/${this.props.galleryKey}`);
+
+        gallery.once("value", snapshot => {
+            const existingTags = (snapshot.val() as IVideoItem).tags || [];
+            gallery.update({ tags: [...existingTags, this.state.userInput] });
+        });
+    }
+
     render() {
         return (
             <div>
                 <input type="text" value={this.state.userInput} onChange={this.textInputChange.bind(this)} />
 
                 {
-                    this.state.availableTags.map(tag => <p key={tag.key}>{tag.tag}</p>)
+                    this.state.availableTags.map(tag => <p key={tag.key} onClick={this.selectedTag.bind(this)}>{tag.tag}</p>)
                 }
 
                 <button onClick={this.addTag.bind(this)}>Add Tag</button>
