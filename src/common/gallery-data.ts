@@ -1,7 +1,8 @@
-export interface IVideoItem {
+export interface IMediaItem {
     key: string;
-    name: string;
-    video: string;
+    mediaItemTitle: string;
+    mediaItemUrl: string;
+    mediaItemDescription: string;
     tags: string[];
 }
 
