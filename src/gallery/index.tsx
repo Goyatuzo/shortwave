@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ThumbnailComponent } from './thumbnail';
 import { Link } from 'react-router-dom';
-import { ModalCarouselComponent } from '../lib-components/modal-carousel';
+import { FilterComponent } from './filters';
 import { ModalState } from '../common/album';
 import { ModalComponent } from '../lib-components/modal';
 
@@ -26,6 +26,8 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
     render() {
         return (
             <section className="grid-container">
+                <FilterComponent />
+
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
                 <li className="grid-item featured">A featured item</li>
