@@ -1,0 +1,9 @@
+@import '../../vars';
+
+.swiper-button-next {
+    right: -$gap;
+}
+
+.swiper-button-prev {
+    left: -$gap;
+}

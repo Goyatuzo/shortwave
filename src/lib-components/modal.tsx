@@ -28,7 +28,11 @@ export class ModalComponent extends React.Component<ModalListingProps, null> {
     }
 
     componentWillReceiveProps(props: ModalListingProps) {
-        if (props.media !== this.props.media) {
+        if ((props.media !== this.props.media 
+            || props.youtubeId !== this.props.youtubeId)
+            && props.media
+            && props.media.length > 0
+        ) {
             this.dialog.show();
             return;
         }
@@ -63,7 +67,11 @@ export class ModalComponent extends React.Component<ModalListingProps, null> {
             <div id="media-gallery-modal" aria-hidden="true" className="modal-js modal-lockhtml-js modal-wrapper modal-multimedia">
                 <div role="dialog" aria-labelledby="modalTitle" className="modal-container">
                     <div className="modal-inner" role="document">
-                        <div className="modal-overlay" tabIndex={-1} onClick={this.boundCloseModal}></div>
+                        <div className="modal-overlay" tabIndex={-1} onClick={this.boundCloseModal}>
+                            {(this.props.media && this.props.media[0]) ? <span className="modal-overlay-title">{this.props.media[0].caption}</span>
+                                : ""
+                            }
+                        </div>
                         <button type="button" onClick={this.boundCloseModal} aria-label="Close this dialog window" className="modal-close"></button>
 
                         <ModalContentComponent media={this.props.media} youtubeId={this.props.youtubeId} modalState={this.props.modalState} />
