@@ -36,15 +36,15 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
     // TEST
     albumData = {
         'album1':
-            [
-                {
-                    caption: "Rocket man!",
-                    src: "http://s3.amazonaws.com/layer-tennis-staging-assets/volleys/_volleyLarge/140926-white-5.jpg"
-                }, {
-                    caption: "Winter is coming.",
-                    src: "http://s3.amazonaws.com/layer-tennis-staging-assets/volleys/_volleyLarge/141017_01.jpg"
-                }
-            ]
+        [
+            {
+                caption: "Rocket man!",
+                src: "http://s3.amazonaws.com/layer-tennis-staging-assets/volleys/_volleyLarge/140926-white-5.jpg"
+            }, {
+                caption: "Winter is coming.",
+                src: "http://s3.amazonaws.com/layer-tennis-staging-assets/volleys/_volleyLarge/141017_01.jpg"
+            }
+        ]
     }
 
     getMediaData(albumId: string) {
@@ -71,28 +71,21 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
         });
     }
 
+    galleryItems() {
+        return this.state.items.map(item => {
+            if (item.mediaItemUrl.indexOf("/") > -1)
+                return <li className="grid-item image"><AlbumThumbnailComponent onClick={(e) => this.selectAlbum(item.key)} imgSrc={item.mediaItemUrl} dateString={"September 2018"} title={item.mediaItemTitle} /></li>
+            else
+                return <li className="grid-item video"><VideoThumbnailComponent onClick={(e) => this.selectVideo(item.mediaItemUrl)} imgSrc={"https://img.youtube.com/vi/" + item.mediaItemUrl  + "/0.jpg"} dateString={"September 2018"} title={item.mediaItemTitle}/></li>;
+        })
+    }
+
     render() {
         return (
             <section className="grid-container">
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
-                    {this.state.items.map(item => <li className="grid-item"><AlbumThumbnailComponent onClick={(e) => this.selectAlbum(item.key)} imgSrc={item.mediaItemUrl} dateString={"September 2018"} title={item.mediaItemTitle} /></li>)}
-                    <li className="grid-item">
-                        <AlbumThumbnailComponent
-                            onClick={(e) => this.selectAlbum('album1')}
-                            imgSrc={"../src/imgs/shark.jpg"}
-                            dateString={"September 2018"}
-                            title={"Deftones"}
-                        />
-                    </li>
-                    <li className="grid-item">
-                        <VideoThumbnailComponent
-                            onClick={(e) => this.selectVideo('691qO96VRVw')}
-                            imgSrc={"../src/imgs/shark.jpg"}
-                            dateString={"September 2018"}
-                            title={"Deftones"}
-                        />
-                    </li>
+                    {this.galleryItems()}
                 </ul>
 
                 <Link to="/admin">ADMIN</Link>
