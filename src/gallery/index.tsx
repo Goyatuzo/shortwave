@@ -25,7 +25,7 @@ export class GalleryComponent extends React.Component<GalleryProps, null> {
                         />
                     </li>
                     <li className="grid-item">An item</li>
-                    <li className="grid-item">An item lorem ipsum lorem ipsum</li>
+                    <li className="grid-item">An item lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</li>
                     <li className="grid-item featured">A featured item</li>
                 </ul>
 
