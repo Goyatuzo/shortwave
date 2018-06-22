@@ -44,15 +44,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                     Open Modal!
                 </button>
 
-                <ModalComponent media={[
-                    {
-                        caption: "Rocket man!",
-                        src: "http://s3.amazonaws.com/layer-tennis-staging-assets/volleys/_volleyLarge/140926-white-5.jpg"
-                    }, {
-                        caption: "Winter is coming.",
-                        src: "http://s3.amazonaws.com/layer-tennis-staging-assets/volleys/_volleyLarge/141017_01.jpg"
-                    }
-                ]} modalState={this.state.modalState}
+                <ModalComponent youtubeId="MD61bddZtbg" modalState={this.state.modalState}
                     onClose={() => this.setState({ modalState: ModalState.CLOSED })}
                 />
 

@@ -6,8 +6,8 @@ import { findDOMNode } from 'react-dom';
 import { ModalState, AlbumImageData } from '../common/album';
 
 interface StateToProps {
-    media: AlbumImageData[];
-    youtubeId: string;
+    media?: AlbumImageData[];
+    youtubeId?: string;
     modalState: ModalState;
     onClose: () => void;
 }

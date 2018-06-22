@@ -81,10 +81,6 @@ export class ModalCarouselComponent extends React.Component<ModalCarouselProps, 
     private boundOnSlideChange = this.onSlideChange.bind(this);
 
     private getRender(): JSX.Element {
-        if (this.props.youtubeId) {
-            return <VideoItemView youtubeId={this.props.youtubeId} />
-        }
-
         return <ImageCarousel medias={this.props.mediaItem} />
     }
 
