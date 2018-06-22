@@ -12,9 +12,9 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
         super(props);
 
         this.state = {
-            mediaItemTitle : "",
-            mediaItemDescription : "",
-            mediaItemUrl : ""
+            mediaItemTitle: "",
+            mediaItemDescription: "",
+            mediaItemUrl: ""
         };
 
         this.handleMediaItemTitle = this.handleMediaItemTitle.bind(this);
@@ -62,7 +62,7 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
     }
 
     handleMediaItemTitle(e) {
-        this.setState({mediaItemTitle: e.target.value});
+        this.setState({ mediaItemTitle: e.target.value });
     }
 
     handleMediaItemDescription(e) {
@@ -70,29 +70,31 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
     }
 
     handleMediaItemUrl(e) {
-        this.setState({mediaItemUrl: e.target.value});
+        this.setState({ mediaItemUrl: e.target.value });
     }
 
     render() {
         return (
-            <form>
+            <form className="admin-form">
                 <legend>Add a New Media Item</legend>
 
-                <div>
-                    <label htmlFor="mediaItemTitle">Media Item Title</label>
-                    <input id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle} type="text"/>
-                </div>
+                <ul>
+                    <li>
+                        <label htmlFor="mediaItemTitle">Gallery Title</label>
+                        <input type="text" id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle} />
+                    </li>
 
-                <div>
-                    <label htmlFor="mediaItemDescription">Media Item Description</label>
-                    <input id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleMediaItemDescription} type="text"/>
-                </div>
-                    
-                <div>
-                    <label htmlFor="mediaItemUrl">Image / Video URL</label>
-                    <input id="mediaItemUrl" value={this.state.galleryUrl} onChange={this.handleMediaItemUrl} type="text"/>
-                </div>
-                
+                    <li>
+                        <label htmlFor="mediaItemDescription">Gallery Description</label>
+                        <input type="text" id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleMediaItemDescription} />
+                    </li>
+
+                    <li>
+                        <label htmlFor="mediaItemUrl">Image / Video URL</label>
+                        <input type="text" id="mediaItemUrl" value={this.state.galleryUrl} onChange={this.handleMediaItemUrl} />
+                    </li>
+                </ul>
+
                 <button onClick={this.addMediaItem.bind(this)}>Submit</button>
             </form>
         )
