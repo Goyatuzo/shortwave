@@ -9,6 +9,6 @@ interface AlbumThumbnailProps {
 }
 
 export const AlbumThumbnailComponent: React.SFC<AlbumThumbnailProps> = (props: AlbumThumbnailProps) => {
-    const iconSrc = "../src/imgs/play-circle.svg";
+    const iconSrc = "../src/imgs/GALLERY.svg";
     return <ThumbnailComponent {...props} iconSrc={iconSrc} />;
 }
