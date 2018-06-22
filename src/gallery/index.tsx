@@ -4,12 +4,9 @@ import { Link } from 'react-router-dom';
 import { FilterComponent } from './filters';
 import { ModalState } from '../common/album';
 import { ModalComponent } from '../lib-components/modal';
-<<<<<<< HEAD
 import firebase from '../firebase/firebase';
 import { IMediaItem } from '../common/gallery-data';
-=======
 import { AlbumThumbnailComponent } from './album-thumbnail';
->>>>>>> be522b0e0cfb285dbdc609b8088b534f5a38c194
 
 interface ExternalProps {
 
@@ -70,8 +67,6 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
     render() {
         return (
             <section className="grid-container">
-                <FilterComponent />
-
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
                 <li className="grid-item featured">A featured item</li>
