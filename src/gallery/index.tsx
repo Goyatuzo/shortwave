@@ -3,6 +3,8 @@ import { ThumbnailComponent } from './thumbnail';
 import { Link } from 'react-router-dom';
 import { ModalState } from '../common/album';
 import { ModalComponent } from '../lib-components/modal';
+import firebase from '../firebase/firebase';
+import { IMediaItem } from '../common/gallery-data';
 
 interface ExternalProps {
 
@@ -11,6 +13,7 @@ interface ExternalProps {
 interface GalleryState {
     modalState: ModalState;
     selectedAlbum: string;
+    items: IMediaItem[];
 }
 
 type GalleryProps = ExternalProps;
@@ -20,7 +23,8 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
         super(props);
         this.state = {
             modalState: ModalState.CLOSED,
-            selectedAlbum: ''
+            selectedAlbum: '',
+            items: [],
         }
     }
 
@@ -45,6 +49,18 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
     selectAlbum(id: string) {
         this.setState({ selectedAlbum: id });
     }
+
+    // componentWillMount() {
+    //     let itemsRef = firebase.database().ref('items');
+
+    //     itemsRef.on('child_added', snapshot => {
+    //         const value: IMediaItem = snapshot.val();
+
+    //         this.setState({
+    //             items: [...this.state.items, { key: snapshot.key, mediaItemTitle: value.mediaItemTitle, mediaItemDescription: value.mediaItemDescription, mediaItemUrl: value.mediaItemUrl, tags: value.tags }]
+    //         });
+    //     });
+    // }
 
     render() {
         return (
