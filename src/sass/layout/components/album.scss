@@ -1,9 +1,16 @@
 @import '../../vars';
 
 .swiper-button-next {
+    display: none;
     right: -$gap;
 }
 
 .swiper-button-prev {
+    display: none;
     left: -$gap;
+}
+
+.item-image-wrapper {
+    width: 100%;
+    height: auto;
 }
