@@ -14,7 +14,7 @@
         $breakpoint: map-get($breakpoints-map, $breakpoint);
     }
 
-    @media (min-width:$breakpoint + pxToEm(1px)) {
+    @media (min-width:$breakpoint + .0625em) {
         @content;
     }
 }
@@ -28,7 +28,7 @@
         $breakpoint-max: map-get($breakpoints-map, $breakpoint-max);
     }
 
-    @media (min-width: $breakpoint-min + pxToEm(1px)) and (max-width: $breakpoint-max) {
+    @media (min-width: $breakpoint-min + .0625em) and (max-width: $breakpoint-max) {
         @content;
     }
 }
