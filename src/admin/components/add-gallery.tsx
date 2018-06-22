@@ -50,7 +50,8 @@ export class AddGalleryComponent extends React.Component<AddGalleryProps, any> {
     ]
 
     addGallery(e: React.MouseEvent<HTMLButtonElement>) {
-        console.log(e);
+        // console.log(e);
+        console.log(this.state.galleryTitle);
         // console.log(this.randomImageUrl);
 
 
@@ -78,12 +79,21 @@ export class AddGalleryComponent extends React.Component<AddGalleryProps, any> {
             <form>
                 <legend>Add Gallery Form</legend>
 
-                <label>Gallery Title</label><br />
-                <input value={this.state.galleryTitle} /><br /><br />
-                <label>Gallery Description</label><br />
-                <input value={this.state.galleryDescription} /><br /><br />
-                <label>Image / Video URL</label><br />
-                <input value={this.state.galleryUrl} /><br /><br />
+                <div>
+                    <label htmlFor="galleryTitle">Gallery Title</label>
+                    <input id="galleryTitle" value={this.state.galleryTitle} onChange={this.handleGalleryTitle}/>
+                </div>
+
+                <div>
+                    <label htmlFor="galleryDescription">Gallery Description</label>
+                    <input id="galleryDescription" value={this.state.galleryDescription} onChange={this.handleGalleryDescription}/>
+                </div>
+                    
+                <div>
+                    <label htmlFor="galleryUrl">Image / Video URL</label>
+                    <input id="galleryUrl" value={this.state.galleryUrl} onChange={this.handleGalleryUrl} />
+                </div>
+                
                 <button onClick={this.addGallery.bind(this)}>Submit</button>
             </form>
         )
