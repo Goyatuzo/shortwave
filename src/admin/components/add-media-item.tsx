@@ -79,12 +79,12 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
                 <legend>Add a New Media Item</legend>
 
                 <div>
-                    <label htmlFor="mediaItemTitle">Gallery Title</label>
+                    <label htmlFor="mediaItemTitle">Media Item Title</label>
                     <input id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle} type="text"/>
                 </div>
 
                 <div>
-                    <label htmlFor="mediaItemDescription">Gallery Description</label>
+                    <label htmlFor="mediaItemDescription">Media Item Description</label>
                     <input id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleMediaItemDescription} type="text"/>
                 </div>
                     
