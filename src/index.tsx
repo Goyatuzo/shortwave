@@ -5,6 +5,7 @@ import { render } from 'react-dom';
 import * as React from 'react';
 import { GalleryComponent } from './gallery';
 import { AdminComponent } from './admin';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
@@ -19,8 +20,15 @@ function getQueryVariable(variable) {
     return null;
 }
 
-if (getQueryVariable("admin") === "true") {
-    render(<AdminComponent />, document.getElementById("sharkwave-entry"));
-} else {
-    render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
-}
+// if (getQueryVariable("admin") === "true") {
+//     render(<AdminComponent />, document.getElementById("sharkwave-entry"));
+// } else {
+//     render(<GalleryComponent />, document.getElementById("sharkwave-entry"));
+// }
+
+render(<HashRouter>
+    <div>
+        <Route exact path="/" component={GalleryComponent} />
+        <Route path="/admin" component={AdminComponent} />
+    </div>
+</HashRouter>, document.getElementById("sharkwave-entry"));

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { VideoThumbnailComponent } from './video-thumbnail';
+import { Link } from 'react-router-dom';
 
 interface ExternalProps {
 
@@ -27,6 +28,8 @@ export class GalleryComponent extends React.Component<GalleryProps, null> {
                     <li className="grid-item">An item lorem ipsum lorem ipsum</li>
                     <li className="grid-item featured">A featured item</li>
                 </ul>
+
+                <Link to="/admin">ADMIN</Link>
             </section>
         );
     }
