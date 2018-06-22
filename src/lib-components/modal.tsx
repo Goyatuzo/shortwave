@@ -28,8 +28,8 @@ export class ModalComponent extends React.Component<ModalListingProps, null> {
     }
 
     componentWillReceiveProps(props: ModalListingProps) {
-        if (props.media !== this.props.media 
-            || props.youtubeId !== this.props.youtubeId
+        if ((props.media !== this.props.media 
+            || props.youtubeId !== this.props.youtubeId)
             && props.media
             && props.media.length > 0
         ) {
