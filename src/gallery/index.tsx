@@ -52,17 +52,17 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
         this.setState({ selectedAlbum: id });
     }
 
-    // componentWillMount() {
-    //     let itemsRef = firebase.database().ref('items');
+    componentWillMount() {
+        let itemsRef = firebase.database().ref('items');
 
-    //     itemsRef.on('child_added', snapshot => {
-    //         const value: IMediaItem = snapshot.val();
+        itemsRef.on('child_added', snapshot => {
+            const value: IMediaItem = snapshot.val();
 
-    //         this.setState({
-    //             items: [...this.state.items, { key: snapshot.key, mediaItemTitle: value.mediaItemTitle, mediaItemDescription: value.mediaItemDescription, mediaItemUrl: value.mediaItemUrl, tags: value.tags }]
-    //         });
-    //     });
-    // }
+            this.setState({
+                items: [...this.state.items, { key: snapshot.key, mediaItemTitle: value.mediaItemTitle, mediaItemDescription: value.mediaItemDescription, mediaItemUrl: value.mediaItemUrl, tags: value.tags }]
+            });
+        });
+    }
 
     render() {
         return (
@@ -70,17 +70,9 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
                 <li className="grid-item featured">A featured item</li>
-                    <li className="grid-item">
-                        <AlbumThumbnailComponent
-                            onClick={(e) => this.selectAlbum('album1')}
-                            imgSrc={"../src/imgs/shark.jpg"}
-                            dateString={"September 2018"}
-                            title={"Deftones"}
-                        />
-                    </li>
+                    {this.state.items.map(item => <li className="grid-item"><AlbumThumbnailComponent onClick={(e) => this.selectAlbum(item.key)} imgSrc={item.mediaItemUrl} dateString={"September 2018"} title={item.mediaItemTitle} /></li>)}
                     <li className="grid-item">An item</li>
-                    <li className="grid-item">An item lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</li>
-                    
+                    <li className="grid-item">An item lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</li>              
                 </ul>
 
                 <Link to="/admin">ADMIN</Link>
