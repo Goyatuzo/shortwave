@@ -76,11 +76,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
             <section className="grid-container">
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
-                    <li className="grid-item featured">A featured item</li>
                     {this.state.items.map(item => <li className="grid-item"><AlbumThumbnailComponent onClick={(e) => this.selectAlbum(item.key)} imgSrc={item.mediaItemUrl} dateString={"September 2018"} title={item.mediaItemTitle} /></li>)}
-                    <li className="grid-item">An item</li>
-                    <li className="grid-item">An item lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</li>              
-                    <li className="grid-item featured">A featured item</li>
                     <li className="grid-item">
                         <AlbumThumbnailComponent
                             onClick={(e) => this.selectAlbum('album1')}
@@ -97,21 +93,19 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                             title={"Deftones"}
                         /> */}
                     </li>
-                    <li className="grid-item">An item lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</li>
-
                 </ul>
 
                 <Link to="/admin">ADMIN</Link>
-                <button onClick={(e) => this.setState({ modalState: ModalState.OPEN })}>
+                {/* <button onClick={(e) => this.setState({ modalState: ModalState.OPEN })}>
                     Open Modal!
-                </button>
+                </button> */}
 
-                {/* <ModalComponent
+                <ModalComponent
                     youtubeId={this.state.selectedVideo}
                     modalState={this.state.modalState}
                     media={this.getMediaData(this.state.selectedAlbum)}
                     onClose={() => this.setState({ modalState: ModalState.CLOSED })}
-                /> */}
+                />
 
             </section>
         );
