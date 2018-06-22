@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ThumbnailComponent } from './thumbnail';
 import { Link } from 'react-router-dom';
 import { FilterComponent } from './filters';
-import { ModalState } from '../common/album';
+import { ModalState, AlbumImageData } from '../common/album';
 import { ModalComponent } from '../lib-components/modal';
 import firebase from '../firebase/firebase';
 import { IMediaItem } from '../common/gallery-data';
@@ -47,8 +47,14 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
             ]
     }
 
-    getMediaData(albumId: string) {
-        return this.albumData[albumId];
+    getMediaData(tag: string): AlbumImageData[] {
+        const albumData = this.state.items.filter(item => item.tags.indexOf(tag) > 0);
+        return albumData.map(ad => {
+            return {
+                caption: ad.mediaItemDescription,
+                src: ad.mediaItemUrl
+            } as AlbumImageData
+        });
     }
 
     selectAlbum(id: string) {
@@ -76,7 +82,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
             <section className="grid-container">
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
-                    {this.state.items.map(item => <li  key={item.key} className="grid-item"><AlbumThumbnailComponent onClick={(e) => this.selectAlbum(item.key)} imgSrc={item.mediaItemUrl} dateString={"September 2018"} title={item.mediaItemTitle} /></li>)}
+                    {this.state.items.map(item => <li key={item.key} className="grid-item"><AlbumThumbnailComponent onClick={(e) => this.selectAlbum(item.key)} imgSrc={item.mediaItemUrl} dateString={"September 2018"} title={item.mediaItemTitle} /></li>)}
                     <li className="grid-item">
                         <AlbumThumbnailComponent
                             onClick={(e) => this.selectAlbum('album1')}
