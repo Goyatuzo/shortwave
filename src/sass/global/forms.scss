@@ -1,0 +1,36 @@
+/// <reference path="../../main.scss" />
+
+/// Input types that are visually compatible with text style inputs
+/// @name form styling
+$input-types: ( 
+"text", "number", "password", "tel", "email", "search", "url", "date", "month", "week", "time", "datetime", "datetime-local" );
+
+%form-element {
+    /*minimum size for form element font-size to prevent iOS resizing*/
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    font-family: $body-font;
+    &:focus {
+        border-color: $primary-dark;
+    }
+
+    &:invalid:not(:focus) {
+        border-color: $red;
+    }
+
+    &[disabled]{
+        cursor: not-allowed;
+    }
+}
+
+input {
+    @each $type in $input-types {
+        &[type=#{$type}] {
+            @extend %form-element;
+        }
+    }
+}
+
+select, textarea {
+    @extend %form-element;
+}

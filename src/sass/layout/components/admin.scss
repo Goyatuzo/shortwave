@@ -2,10 +2,25 @@
 
 .admin {
     &-container {
-        max-width: $max-line-length;
         margin-left: auto;
         margin-right: auto;
 
         @include responsive-property("padding", $standard-padding-map);
+    }
+    &-form {
+        list-style-type: none;
+        max-width: $max-line-length;
+        margin-top: $gap;
+        li {
+            display: flex;
+            justify-content: space-between;
+            & + li {
+                margin-top: $gap-sm;
+            }
+        }
+        input {
+            width: 100%;
+            max-width: 20rem;
+        }
     }
 }
