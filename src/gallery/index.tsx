@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { FilterComponent } from './filters';
 import { ModalState } from '../common/album';
 import { ModalComponent } from '../lib-components/modal';
+import firebase from '../firebase/firebase';
+import { IMediaItem } from '../common/gallery-data';
 import { AlbumThumbnailComponent } from './album-thumbnail';
 
 interface ExternalProps {
@@ -14,6 +16,7 @@ interface GalleryState {
     modalState: ModalState;
     selectedAlbum: string;
     selectedVideo: string;
+    items: IMediaItem[];
 }
 
 type GalleryProps = ExternalProps;
@@ -25,6 +28,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
             modalState: ModalState.CLOSED,
             selectedAlbum: '',
             selectedVideo: '',
+            items: [],
         }
     }
 
@@ -50,11 +54,21 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
         this.setState({ selectedAlbum: id, selectedVideo: '' });
     }
 
+    // componentWillMount() {
+    //     let itemsRef = firebase.database().ref('items');
+
+    //     itemsRef.on('child_added', snapshot => {
+    //         const value: IMediaItem = snapshot.val();
+
+    //         this.setState({
+    //             items: [...this.state.items, { key: snapshot.key, mediaItemTitle: value.mediaItemTitle, mediaItemDescription: value.mediaItemDescription, mediaItemUrl: value.mediaItemUrl, tags: value.tags }]
+    //         });
+    //     });
+    // }
+
     render() {
         return (
             <section className="grid-container">
-                <FilterComponent />
-
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
                 <li className="grid-item featured">A featured item</li>
