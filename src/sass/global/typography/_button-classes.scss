@@ -1,0 +1,36 @@
+/// <reference path="../../main.scss" />
+
+.btn, %btn {
+    display: inline-block;
+    background-color: $primary-medium;
+    padding: $space $gap-sm;
+    text-decoration: none;
+    border-radius: $border-radius;
+    font-family: $accent-font;
+    @include font-size($small-font-sizes);
+    @include link-helper($primary-light, $primary-light);
+
+    &:hover, &:active, &:focus {
+        background-color: $primary-dark;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 2px $primary-medium, 0 0 0 1px $white inset;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+%un-button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: inline;
+    color: $primary-dark;
+    @include font-size($reg-font-sizes);
+    text-align: left;
+}

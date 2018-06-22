@@ -6,10 +6,12 @@ const Swiper = require('swiper').default;
 import ImageCarousel from './image-carousel';
 import { findDOMNode } from 'react-dom';
 import { ModalState, AlbumImageData } from '../common/album';
+import { VideoItemView } from './video-item';
 
 interface ExternalProps {
     mediaItem: AlbumImageData[];
     modalState: ModalState;
+    youtubeId: string;
 }
 
 type ModalCarouselProps = ExternalProps;
