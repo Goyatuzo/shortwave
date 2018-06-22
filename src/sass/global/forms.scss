@@ -12,6 +12,7 @@ $input-types: (
     font-family: $body-font;
     &:focus {
         border-color: $primary-dark;
+        outline: none;
     }
 
     &:invalid:not(:focus) {
@@ -33,4 +34,9 @@ input {
 
 select, textarea {
     @extend %form-element;
+}
+
+legend {
+    @include font-size($medium-large-font-sizes);
+    font-weight: $font-weight-bold;
 }
