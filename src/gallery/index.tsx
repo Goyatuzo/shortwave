@@ -76,7 +76,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
             <section className="grid-container">
                 <h2 className="visually-hidden">Media Gallery</h2>
                 <ul className="grid">
-                    {this.state.items.map(item => <li className="grid-item"><AlbumThumbnailComponent onClick={(e) => this.selectAlbum(item.key)} imgSrc={item.mediaItemUrl} dateString={"September 2018"} title={item.mediaItemTitle} /></li>)}
+                    {this.state.items.map(item => <li  key={item.key} className="grid-item"><AlbumThumbnailComponent onClick={(e) => this.selectAlbum(item.key)} imgSrc={item.mediaItemUrl} dateString={"September 2018"} title={item.mediaItemTitle} /></li>)}
                     <li className="grid-item">
                         <AlbumThumbnailComponent
                             onClick={(e) => this.selectAlbum('album1')}
