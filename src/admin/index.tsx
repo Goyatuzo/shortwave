@@ -17,10 +17,10 @@ export class AdminComponent extends React.Component<AdminProps, any> {
 
     render() {
         return (
-            <div>
+            <section className="admin-container">
                 <AddGalleryComponent />
                 <AdminListingComponent />
-            </div>
+            </section>
         )
     }
 }
