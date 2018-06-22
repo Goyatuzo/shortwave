@@ -77,7 +77,7 @@ export class AddGalleryComponent extends React.Component<AddGalleryProps, any> {
     render() {
         return (
             <form>
-                <legend>Add Gallery Form</legend>
+                <legend>Add a New Media Item</legend>
 
                 <div>
                     <label htmlFor="galleryTitle">Gallery Title</label>
