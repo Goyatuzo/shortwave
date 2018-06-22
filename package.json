@@ -19,12 +19,14 @@
   },
   "homepage": "https://github.com/Goyatuzo/shortwave#readme",
   "dependencies": {
+    "a11y-dialog": "^5.1.1",
     "es6-promise": "^4.2.4",
     "firebase": "^5.1.0",
     "history": "^4.7.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "swiper": "^4.3.3"
   },
   "devDependencies": {
     "@types/history": "^4.6.2",

@@ -80,12 +80,12 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
 
                 <ul>
                     <li>
-                        <label htmlFor="mediaItemTitle">Gallery Title</label>
+                        <label htmlFor="mediaItemTitle">Media Item Title</label>
                         <input type="text" id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle} />
                     </li>
 
                     <li>
-                        <label htmlFor="mediaItemDescription">Gallery Description</label>
+                        <label htmlFor="mediaItemDescription">Media Item Description</label>
                         <input type="text" id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleMediaItemDescription} />
                     </li>
 
