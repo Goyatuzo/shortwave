@@ -39,7 +39,7 @@ export class AdminListingComponent extends React.Component<AdminListingProps, Ad
         return (
             <div>
                 {
-                    this.state.items.map(item => <GalleryItemView key={item.key} caption={item.name} youtubeId={item.video} tags={item.tags} />)
+                    this.state.items.map(item => <GalleryItemView key={item.key} caption={item.name} youtubeId={item.video} tags={item.tags} galleryKey={item.key}/>)
                 }
             </div>
         )
