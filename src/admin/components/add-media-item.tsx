@@ -5,16 +5,16 @@ interface ExternalProps {
 
 }
 
-type AddGalleryProps = ExternalProps;
+type AddMediaItemProps = ExternalProps;
 
-export class AddGalleryComponent extends React.Component<AddGalleryProps, any> {
-    constructor(props: AddGalleryProps) {
+export class AddMediaItemComponent extends React.Component<AddMediaItemProps, any> {
+    constructor(props: AddMediaItemProps) {
         super(props);
 
         this.state = {
-            galleryTitle : "",
-            galleryDescription : "",
-            galleryUrl : ""
+            mediaItemTitle : "",
+            mediaItemDescription : "",
+            mediaItemUrl : ""
         };
     }
 
@@ -49,8 +49,9 @@ export class AddGalleryComponent extends React.Component<AddGalleryProps, any> {
         'KHQhp2cGZtE'
     ]
 
-    addGallery(e: React.MouseEvent<HTMLButtonElement>) {
-        console.log(e);
+    addMediaItem(e: React.MouseEvent<HTMLButtonElement>) {
+        // console.log(e);
+        console.log(this.state.mediaItemTitle);
         // console.log(this.randomImageUrl);
 
 
@@ -61,30 +62,39 @@ export class AddGalleryComponent extends React.Component<AddGalleryProps, any> {
         // }); 
     }
 
-    handleGalleryTitle(e) {
-        this.setState({galleryTitle: e.target.value});
+    handleMediaItemTitle(e) {
+        this.setState({mediaItemTitle: e.target.value});
     }
 
-    handleGalleryDescription(e) {
-        this.setState({galleryDescriptioin: e.target.value});
+    handleMediaItemDescription(e) {
+        this.setState({mediaItemDescriptioin: e.target.value});
     }
 
-    handleGalleryUrl(e) {
-        this.setState({galleryUrl: e.target.value});
+    handleMediaItemUrl(e) {
+        this.setState({mediaItemUrl: e.target.value});
     }
 
     render() {
         return (
             <form>
-                <legend>Add Gallery Form</legend>
+                <legend>Add a New Media Item</legend>
 
-                <label>Gallery Title</label><br />
-                <input value={this.state.galleryTitle} /><br /><br />
-                <label>Gallery Description</label><br />
-                <input value={this.state.galleryDescription} /><br /><br />
-                <label>Image / Video URL</label><br />
-                <input value={this.state.galleryUrl} /><br /><br />
-                <button onClick={this.addGallery.bind(this)}>Submit</button>
+                <div>
+                    <label htmlFor="mediaItemTitle">Gallery Title</label>
+                    <input id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle}/>
+                </div>
+
+                <div>
+                    <label htmlFor="mediaItemDescription">Gallery Description</label>
+                    <input id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleMediaItemDescription}/>
+                </div>
+                    
+                <div>
+                    <label htmlFor="mediaItemUrl">Image / Video URL</label>
+                    <input id="mediaItemUrl" value={this.state.galleryUrl} onChange={this.handleMediaItemUrl} />
+                </div>
+                
+                <button onClick={this.addMediaItem.bind(this)}>Submit</button>
             </form>
         )
     }

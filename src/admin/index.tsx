@@ -1,6 +1,6 @@
 import * as React from 'react';
 import firebase from '../firebase/firebase';
-import { AddGalleryComponent } from './components/add-gallery';
+import { AddMediaItemComponent } from './components/add-media-item';
 import { AdminListingComponent } from './components/admin-listing';
 
 interface ExternalProps {
@@ -18,7 +18,7 @@ export class AdminComponent extends React.Component<AdminProps, any> {
     render() {
         return (
             <section className="admin-container">
-                <AddGalleryComponent />
+                <AddMediaItemComponent />
                 <AdminListingComponent />
             </section>
         )

@@ -1,22 +1,22 @@
 // ------------- MEDIA QUERIES ------------- //
 
 //@media (max-width:$x-large-media-query-size) 
-$x-large-media-query-size: pxToEm(1600px);	 
+$x-large-media-query-size: 100em;	 
 
 //@media (max-width:$large-media-query-size)
-$large-media-query-size: pxToEm(1280px);		
+$large-media-query-size: 80em;		
 
 //@media (max-width:$medium-media-query-size)
-$medium-media-query-size: pxToEm(1024px);
+$medium-media-query-size: 64em;
 
 //@media (max-width:$tablet-media-query-size)
-$tablet-media-query-size: pxToEm(767px);	
+$tablet-media-query-size: 48em;	
 
 //@media (max-width:$small-media-query-size)
-$small-media-query-size: pxToEm(640px);	
+$small-media-query-size: 40em;	
 
 //@media (max-width:$mobile-media-query-size)
-$mobile-media-query-size: pxToEm(340px); 
+$mobile-media-query-size: 22em; 
 
 // ------------- BREAKPOINTS MAP ------------- //
 
