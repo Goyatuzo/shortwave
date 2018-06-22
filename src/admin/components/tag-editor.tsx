@@ -1,6 +1,6 @@
 import * as React from 'react';
 import firebase from '../../firebase/firebase';
-import { ITag, IVideoItem } from '../../common/gallery-data';
+import { ITag, IMediaItem } from '../../common/gallery-data';
 
 interface ExternalProps {
     galleryKey: string;
@@ -42,7 +42,7 @@ export class TagEditorComponent extends React.Component<TagEditorProps, TagEdito
         const gallery = firebase.database().ref(`items/${this.props.galleryKey}`);
 
         gallery.once("value", snapshot => {
-            const existingTags = (snapshot.val() as IVideoItem).tags || [];
+            const existingTags = (snapshot.val() as IMediaItem).tags || [];
             gallery.update({ tags: [...existingTags, this.state.userInput] });
         });
     }
@@ -51,7 +51,7 @@ export class TagEditorComponent extends React.Component<TagEditorProps, TagEdito
         const gallery = firebase.database().ref(`items/${this.props.galleryKey}`);
 
         gallery.once("value", snapshot => {
-            const existingTags = (snapshot.val() as IVideoItem).tags || [];
+            const existingTags = (snapshot.val() as IMediaItem).tags || [];
             gallery.update({ tags: [...existingTags, e.currentTarget.textContent] });
         });
     }

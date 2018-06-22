@@ -18,7 +18,7 @@
         opacity: 0;
         transition: .3s;
         mix-blend-mode: multiply;
-        z-index: 100;
+        z-index: 1;
     }
 
     &-background {
@@ -33,6 +33,7 @@
         color: $primary-light;
         padding: $gap-sm;
         width: 100%;
+        z-index: 2;
 
         &:before {
             content: '';
@@ -55,10 +56,8 @@
     }
 
     &:hover, &:focus {
-        .thumbnail-background {
-            &:after {
-                opacity: 1;
-            }
+        &:after {
+            opacity: 1;
         }
     }
 }
