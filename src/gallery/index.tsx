@@ -13,6 +13,7 @@ interface ExternalProps {
 interface GalleryState {
     modalState: ModalState;
     selectedAlbum: string;
+    selectedVideo: string;
 }
 
 type GalleryProps = ExternalProps;
@@ -22,7 +23,8 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
         super(props);
         this.state = {
             modalState: ModalState.CLOSED,
-            selectedAlbum: ''
+            selectedAlbum: '',
+            selectedVideo: '',
         }
     }
 
@@ -45,7 +47,7 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
     }
 
     selectAlbum(id: string) {
-        this.setState({ selectedAlbum: id });
+        this.setState({ selectedAlbum: id, selectedVideo: '' });
     }
 
     render() {
@@ -74,7 +76,10 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
                     Open Modal!
                 </button>
 
-                <ModalComponent youtubeId="MD61bddZtbg" modalState={this.state.modalState}
+                <ModalComponent 
+                    youtubeId={this.state.selectedVideo} 
+                    modalState={this.state.modalState}
+                    media={this.getMediaData(this.state.selectedAlbum)}
                     onClose={() => this.setState({ modalState: ModalState.CLOSED })}
                 />
 
