@@ -14,7 +14,7 @@
     }
 
     &-item {
-        background: $secondary-light;
+        background: $primary-medium;
 
         &:first-child, &:nth-child(7), &:nth-child(8n+1), &:nth-child(8n+7) {
             grid-column: span 2;
