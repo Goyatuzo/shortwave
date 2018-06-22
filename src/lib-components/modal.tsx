@@ -27,6 +27,11 @@ export class ModalComponent extends React.Component<ModalListingProps, null> {
     }
 
     componentWillReceiveProps(props: ModalListingProps) {
+        if (props.media !== this.props.media) {
+            this.dialog.show();
+            return;
+        }
+
         /*
          * The modal show / hide needs to be in this because there is nothing in render function that will trigger a change.
          */
