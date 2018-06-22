@@ -28,7 +28,7 @@ export class ModalComponent extends React.Component<ModalListingProps, null> {
     }
 
     componentWillReceiveProps(props: ModalListingProps) {
-        if (props.media !== this.props.media) {
+        if (props.media !== this.props.media || props.youtubeId !== this.props.youtubeId) {
             this.dialog.show();
             return;
         }
