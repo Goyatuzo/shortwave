@@ -77,21 +77,21 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
     render() {
         return (
             <form>
-                <legend>Add Media Item Form</legend>
+                <legend>Add a New Media Item</legend>
 
                 <div>
                     <label htmlFor="mediaItemTitle">Gallery Title</label>
-                    <input id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleGalleryTitle}/>
+                    <input id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle}/>
                 </div>
 
                 <div>
                     <label htmlFor="mediaItemDescription">Gallery Description</label>
-                    <input id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleGalleryDescription}/>
+                    <input id="mediaItemDescription" value={this.state.galleryDescription} onChange={this.handleMediaItemDescription}/>
                 </div>
                     
                 <div>
                     <label htmlFor="mediaItemUrl">Image / Video URL</label>
-                    <input id="mediaItemUrl" value={this.state.galleryUrl} onChange={this.handleGalleryUrl} />
+                    <input id="mediaItemUrl" value={this.state.galleryUrl} onChange={this.handleMediaItemUrl} />
                 </div>
                 
                 <button onClick={this.addMediaItem.bind(this)}>Submit</button>

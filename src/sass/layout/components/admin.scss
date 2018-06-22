@@ -5,5 +5,7 @@
         max-width: $max-line-length;
         margin-left: auto;
         margin-right: auto;
+
+        @include responsive-property("padding", $standard-padding-map);
     }
 }
