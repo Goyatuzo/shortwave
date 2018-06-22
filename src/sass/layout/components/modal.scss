@@ -14,7 +14,7 @@
         padding: $gap;
         opacity: 1;
         overflow: auto;
-        background-color: rgba($primary-dark, .95);
+        background-color: $primary-dark;
 
         &[aria-hidden="true"] {
             visibility: hidden;
@@ -84,7 +84,8 @@
     &-inner {
         padding-bottom: $gap;
         @include responsive-property('padding', $standard-padding-map);
-        max-width: $max-line-length;
+        max-width: 70rem;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         
@@ -156,7 +157,12 @@
     }
 }
 
+.item-content {
+    margin-top: $gap;
+}
+
 .modal-overlay-title {
+    pointer-events: none;
     font-size: calc(12rem + 5vw);
     line-height: 1 !important;
     color: $secondary-medium;
