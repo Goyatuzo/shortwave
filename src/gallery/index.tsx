@@ -48,7 +48,11 @@ export class GalleryComponent extends React.Component<GalleryProps, GalleryState
     }
 
     getMediaData(tag: string): AlbumImageData[] {
-        const albumData = this.state.items.filter(item => (item.tags && item.tags.indexOf(tag) > 0));
+        const albumData = this.state.items.filter(item => item.key === tag);
+
+        if (albumData.length == 0) {
+            return null;
+        }
         return albumData.map(ad => {
             return {
                 caption: ad.mediaItemDescription,
