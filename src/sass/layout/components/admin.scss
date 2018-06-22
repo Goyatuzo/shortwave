@@ -8,9 +8,15 @@
         @include responsive-property("padding", $standard-padding-map);
     }
     &-form {
-        list-style-type: none;
         max-width: $max-line-length;
-        margin-top: $gap;
+        margin-left: auto;
+        margin-right: auto;
+
+        ul {
+            list-style-type: none;
+            margin-top: $gap;
+        }
+
         li {
             display: flex;
             justify-content: space-between;

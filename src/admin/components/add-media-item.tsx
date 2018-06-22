@@ -75,10 +75,10 @@ export class AddMediaItemComponent extends React.Component<AddMediaItemProps, an
 
     render() {
         return (
-            <form>
+            <form className="admin-form">
                 <legend>Add a New Media Item</legend>
 
-                <ul className="admin-form">
+                <ul>
                     <li>
                         <label htmlFor="mediaItemTitle">Gallery Title</label>
                         <input type="text" id="mediaItemTitle" value={this.state.galleryTitle} onChange={this.handleMediaItemTitle} />
