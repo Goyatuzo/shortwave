@@ -84,7 +84,8 @@
     &-inner {
         padding-bottom: $gap;
         @include responsive-property('padding', $standard-padding-map);
-        max-width: $max-line-length;
+        max-width: 70rem;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         
