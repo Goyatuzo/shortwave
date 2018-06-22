@@ -6,10 +6,12 @@ const Swiper = require('swiper').default;
 import ImageCarousel from './image-carousel';
 import { findDOMNode } from 'react-dom';
 import { ModalState, AlbumImageData } from '../common/album';
+import { VideoItemView } from './video-item';
 
 interface ExternalProps {
     mediaItem: AlbumImageData[];
     modalState: ModalState;
+    youtubeId: string;
 }
 
 type ModalCarouselProps = ExternalProps;
@@ -79,6 +81,10 @@ export class ModalCarouselComponent extends React.Component<ModalCarouselProps, 
     private boundOnSlideChange = this.onSlideChange.bind(this);
 
     private getRender(): JSX.Element {
+        if (this.props.youtubeId) {
+            return <VideoItemView youtubeId={this.props.youtubeId} />
+        }
+
         return <ImageCarousel medias={this.props.mediaItem} />
     }
 

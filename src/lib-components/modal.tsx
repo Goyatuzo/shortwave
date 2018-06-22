@@ -7,6 +7,7 @@ import { ModalState, AlbumImageData } from '../common/album';
 
 interface StateToProps {
     media: AlbumImageData[];
+    youtubeId: string;
     modalState: ModalState;
     onClose: () => void;
 }
@@ -65,7 +66,7 @@ export class ModalComponent extends React.Component<ModalListingProps, null> {
                         <div className="modal-overlay" tabIndex={-1} onClick={this.boundCloseModal}></div>
                         <button type="button" onClick={this.boundCloseModal} aria-label="Close this dialog window" className="modal-close"></button>
 
-                        <ModalContentComponent media={this.props.media} modalState={this.props.modalState} />
+                        <ModalContentComponent media={this.props.media} youtubeId={this.props.youtubeId} modalState={this.props.modalState} />
                     </div>
                 </div>
             </div>

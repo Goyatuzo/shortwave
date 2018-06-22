@@ -7,6 +7,7 @@ import { AlbumImageData, ModalState } from '../common/album';
 interface StateToProps {
     media: AlbumImageData[];
     modalState: ModalState;
+    youtubeId: string;
 }
 
 type ModalContentProps = StateToProps;
@@ -20,7 +21,7 @@ export class ModalContentComponent extends React.Component<ModalContentProps, nu
     render() {
         return (
             <div className="modal-content">
-                <ModalCarouselComponent modalState={this.props.modalState} mediaItem={this.props.media} />
+                <ModalCarouselComponent modalState={this.props.modalState} mediaItem={this.props.media} youtubeId={this.props.youtubeId} />
             </div>
         );
     }
