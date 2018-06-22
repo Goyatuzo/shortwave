@@ -1,0 +1,103 @@
+﻿/// <reference path="../main.scss" />
+// --------------
+//
+// Modal Carousel
+//
+// --------------
+
+.modal-multimedia {
+    .modal-body {
+        max-width: 100%;
+    }
+
+    &-content {
+        .item {
+            background: none;
+
+            .item-content {
+                background: none;
+                border: 0;
+            }
+        }
+    }
+
+    .swiper-container {
+        position: relative;
+        width: 75vw;
+        max-width: $max-width-xsmall;
+
+        .swiper-slide {
+            margin: 0;
+            box-shadow: none;
+            background: none;
+            cursor: default;
+        }
+
+        .item {
+            background: none;
+
+            &-content {
+                background: none;
+                border: 0;
+                padding: $gap-medium 0 0;
+
+                p {
+                    &:first-child {
+                        margin-top: 0;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .swiper-pagination {
+            position: static;
+            margin-top: $gap-medium;
+            padding-bottom: $gap-small;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 2.675rem;
+            height: 2.675rem;
+            background: none;
+            border: 2px solid $white;
+            box-shadow: none;
+            top: auto;
+            bottom: 0;
+
+            &:after {
+                border-color: $white;
+                top: 0.875rem;
+                left: 0.975rem;
+            }
+        }
+
+        .swiper-button-next {
+            &:after {
+                left: 0.65rem;
+            }
+        }
+    }
+
+    .data-list {
+        margin: $gap 0 0;
+
+        @include media-min(medium) {
+            display: flex;
+            margin: $gap-medium 0 0;
+
+            dt {
+                flex-grow: 0;
+                margin-right: 0.25em;
+            }
+
+            dd {
+                flex-grow: 1;
+            }
+        }
+    }
+}
